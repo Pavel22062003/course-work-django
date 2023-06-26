@@ -1,0 +1,47 @@
+{%extends 'mailing_list/base.html'%}
+{%block content%}
+{% load mediapath %}
+{% load cuttext %}
+{%for blog in blogs%}
+
+
+<div class="col-lg-4">
+    <div class="card">
+        <div class="card-body">
+
+            <p><img src="{{blog.img|mediapath}}" width="300" height="300" alt="Винни-Пух"></p>
+
+
+            <h2>{{blog.header}}
+            </h2>
+            <p>{{blog.content|cut}} </p>
+
+
+
+
+        </div><!-- /.col-lg-4 -->
+    </div>
+</div>
+{%endfor%}
+
+<div class="row g-5">
+    <div class="col-md-8">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+            <p>Всего рассылок - {{settings_count}}</p>
+            <p>Активных рассылок - {{settings_active}}</p>
+            <a class="btn btn-outline-info btn-sm" href="{%url 'mailing_list:mail_list' %}">Перейти к рассылкам </a>
+
+
+        </h3>
+
+        <article class="blog-post">
+            <h2 class="display-5 link-body-emphasis mb-1">Количество клиентов - {{clients_count}} </h2>
+
+
+            <p><a class="btn btn-outline-info btn-sm" href="{%url 'mailing_list:client_list' %}">Перейти к
+                клиентам </a></p>
+        </article>
+
+
+
+{%endblock%}
