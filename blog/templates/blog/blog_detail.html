@@ -1,0 +1,42 @@
+{% extends 'mailing_list/base.html' %}
+
+
+{% block content%}
+{%load mediapath%}
+<!--<div class="p-5 mb-4 bg-light rounded-3">-->
+
+<!--    <div class="container-fluid py-5">-->
+<!--        <p><img src="{{object.img|mediapath}}" width="300" height="300" alt="Винни-Пух"></p>-->
+
+<!--        <h1 class="display-5 fw-bold"></h1>-->
+<!--        <p><h4>Заголовок</h4></p>-->
+<!--        <p class="col-md-8 fs-4">{{object.header}}</p>-->
+<!--        <p><h4>Содержание</h4></p>-->
+<!--        <p class="col-md-8 fs-4">{{object.content}}</p>-->
+
+
+<!--    </div>-->
+<!--</div>-->
+
+
+   <div class="card-body">
+      <a href="{% url 'blog:blog_list'%}" class="btn btn-outline-primary mb-3">Назад</a>
+      <img src="{{ object.img|mediapath }}" class="card-img-top" alt="Винни-Пух">
+
+      <h1 class="card-title">{{ object.header }}</h1>
+
+      <div class="card-text">
+        <h4>Заголовок</h4>
+        <p class="fs-4">{{ object.header }}</p>
+
+        <h4>Содержание</h4>
+        <p class="fs-4">{{ object.content }}</p>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+
+

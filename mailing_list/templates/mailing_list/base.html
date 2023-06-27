@@ -33,12 +33,14 @@
             <div class="collapse navbar-collapse show" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" href="{% url 'mailing_list:main'%}">Главная</a>
-                    <a class="nav-link active" aria-current="page"
+                    <a class="nav-link " aria-current="page"
                        href="{% url 'mailing_list:client_list'%}">Клиенты</a>
 
                     <a class="nav-link" href="{% url 'mailing_list:mail_list'%}">Рассылки</a>
                     {% if perms.users.view_user%}
                     <a class="nav-link" href="{% url 'users:users'%}">Пользователи</a>
+                     <a class="nav-link " aria-current="page"
+                       href="{% url 'blog:blog_list'%}">Блог</a>
                     {%endif%}
 
                     <a class="nav-link" href="#">Pricing</a>
