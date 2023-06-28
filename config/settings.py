@@ -21,8 +21,7 @@ load_dotenv(BASE_DIR / '.env')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-h%x+96axmq)_-od+6fgfn7=m5aurj3^_5bqs#6=nca8#)b*r1h'
-
+SECRET_KEY = os.getenv('SECRET_KEY ')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -41,7 +40,7 @@ INSTALLED_APPS = [
     'users',
     'crispy_forms',
     'crispy_bootstrap4',
-   # 'django-crontab',
+    'django-crontab',
     'blog',
 ]
 
