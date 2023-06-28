@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import permission_required
-from django.contrib.auth.mixins import UserPassesTestMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import UserPassesTestMixin, PermissionRequiredMixin, LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, TemplateView
@@ -34,7 +34,7 @@ class ClientList(ListView):
     model = CLIENT
 
 
-class ClientDetail(UserPassesTestMixin, DetailView):
+class ClientDetail(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = CLIENT
 
     def test_func(self):
