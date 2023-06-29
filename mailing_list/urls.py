@@ -4,7 +4,7 @@ from django.views.decorators.cache import cache_page
 
 from mailing_list.apps import MailingListConfig
 from mailing_list.views import ClientList, ClientDetail, MailList, MailDetail, MailCreate, ClientCreate, \
-    MailUpdate, MessageDetail, MessageCreate, toggle_status, MainView
+    MailUpdate, MessageDetail, MessageCreate, toggle_status, MainView, AttemptListView
 
 app_name = MailingListConfig.name
 
@@ -21,6 +21,7 @@ urlpatterns = [
     path('mailing_list/detail/<int:pk>/', MailDetail.as_view(), name='mail_det'),
     path('mailing_list/create_mail/', MailCreate.as_view(), name='mail_create'),
     path('mailing_list/create_message/', MessageCreate.as_view(), name='message_create'),
+    path('mailing_list/attempt/', AttemptListView.as_view(), name='attempts')
 
 
 

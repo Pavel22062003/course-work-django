@@ -6,7 +6,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, T
 
 from blog.models import Blog
 from mailing_list.forms import ClientForm, SettingsForm, MessageForm
-from mailing_list.models import CLIENT, MESSAGE, SETTINGS
+from mailing_list.models import CLIENT, MESSAGE, SETTINGS, ATTEMPT
 from mailing_list.services import send_order_email, time_task
 
 
@@ -102,7 +102,6 @@ class MessageCreate(CreateView):
     success_url = reverse_lazy('mailing_list:mail_list')
 
     def form_valid(self, form):
-
         return super().form_valid(form)
 
 
@@ -117,3 +116,7 @@ def toggle_status(request, pk):
         obj.save()
 
     return redirect(reverse('mailing_list:mail_list'))
+
+
+class AttemptListView(ListView):
+    model = ATTEMPT

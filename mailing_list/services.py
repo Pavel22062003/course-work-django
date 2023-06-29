@@ -17,6 +17,7 @@ def send_order_email(obj: SETTINGS):
             fail_silently=True)
 
         mail_attempt = ATTEMPT.objects.create(  # запись в таблицу ATTEMPT об успешности выполнения
+            settings=obj,
             message=obj.message.letter_subject,
             date=datetime.now(),
             status=True,
@@ -26,6 +27,7 @@ def send_order_email(obj: SETTINGS):
     except Exception as e:
 
         mail_attempt = ATTEMPT.objects.create( # запись в таблицу ATTEMPT об ошибке
+            settings=obj,
             message=obj.message.letter_subject,
             date=datetime.now(),
             status=False,

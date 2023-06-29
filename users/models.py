@@ -12,7 +12,7 @@ class User(AbstractUser):
     username = None
     email = models.EmailField(verbose_name='почта', unique=True)
     is_verified_email = models.BooleanField(default=False)
-    is_active = models.BooleanField(verbose_name='активность', default=False, **NULLABLE)
+    is_active = models.BooleanField(verbose_name='активность', default=True, **NULLABLE)
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 

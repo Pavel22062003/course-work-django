@@ -69,6 +69,7 @@ class SETTINGS(models.Model):
 
 
 class ATTEMPT(models.Model):
+    settings = models.ForeignKey(SETTINGS, on_delete=models.CASCADE, verbose_name='рассылка', **NULLABLE)
     message = models.CharField(verbose_name='сообщение')
     date = models.DateTimeField(verbose_name="дата и время попытки")
     status = models.BooleanField(verbose_name='статус попытки')
